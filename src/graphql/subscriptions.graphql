@@ -1,0 +1,181 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateVenue {
+  onCreateVenue {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    address
+  }
+}
+subscription OnUpdateVenue {
+  onUpdateVenue {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    address
+  }
+}
+subscription OnDeleteVenue {
+  onDeleteVenue {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    address
+  }
+}
+subscription OnCreateArtist {
+  onCreateArtist {
+    id
+    name
+    description
+    image
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    genres {
+      id
+      name
+    }
+  }
+}
+subscription OnUpdateArtist {
+  onUpdateArtist {
+    id
+    name
+    description
+    image
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    genres {
+      id
+      name
+    }
+  }
+}
+subscription OnDeleteArtist {
+  onDeleteArtist {
+    id
+    name
+    description
+    image
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    genres {
+      id
+      name
+    }
+  }
+}
+subscription OnCreatePerformance {
+  onCreatePerformance {
+    id
+    when
+    venue {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    artist {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+  }
+}
+subscription OnUpdatePerformance {
+  onUpdatePerformance {
+    id
+    when
+    venue {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    artist {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+  }
+}
+subscription OnDeletePerformance {
+  onDeletePerformance {
+    id
+    when
+    venue {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    artist {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+  }
+}

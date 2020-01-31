@@ -1,3 +1,83 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane (ionSplitPaneVisible)="ionSplitPaneVisible($event)" when="md" contentId="menu-content">
+    <!--  our side menu  -->
+    <ion-menu contentId="menu-content">
+      <ion-content style="--background: var(--ion-color-tertiary)">
+        <div style="text-align: center;">
+          <a routerLink="/tabs/playlists" style="text-decoration: none;">
+            <h1 class="logo">tmf</h1>
+          </a>
+        </div>
+        <ion-searchbar></ion-searchbar>
+        
+            <!-- <ng-template #loadingPlaylists>
+              <ion-list style="padding: 0">
+          
+                <ion-item color="tertiary">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col size="3">
+                        <ion-skeleton-text animated style="width: 50px; height: 50px;"></ion-skeleton-text>
+                      </ion-col>
+                      <ion-col>   
+                        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="width: 95%"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="width: 85%"></ion-skeleton-text>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item color="tertiary">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col size="3">
+                        <ion-skeleton-text animated style="width: 50px; height: 50px;"></ion-skeleton-text>
+                      </ion-col>
+                      <ion-col>   
+                        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="width: 95%"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="width: 85%"></ion-skeleton-text>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item color="tertiary">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col size="3">
+                        <ion-skeleton-text animated style="width: 50px; height: 50px;"></ion-skeleton-text>
+                      </ion-col>
+                      <ion-col>   
+                        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="width: 95%"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="width: 85%"></ion-skeleton-text>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+              </ion-list>
+            </ng-template> -->
+
+          
+          <!-- <ng-template #guest>
+            <div class="ion-padding">
+              <div style="background: var(--ion-color-light)" class="ion-padding">
+                  <h1 style="font-weight: 900;">Sign Up</h1>
+                  <p>Create an account to start sharing playlists across Spotify and Apple Music.</p>
+                  <ion-button expand="block" (click)="googleLogin()">
+                    <ion-icon name="logo-google" slot="start"></ion-icon>
+                    Connect with Google
+                  </ion-button>
+                  <ion-button color="secondary" expand="block">Sign In</ion-button>
+              </div>
+            </div>
+          </ng-template> -->
+          
+      </ion-content>
+
+    </ion-menu>
+  
+    <!-- the main content -->
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

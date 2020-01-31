@@ -24,3 +24,52 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/assets/fonts/Lora-Bold.ttf') format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono', monospace;
+  src: url('/assets/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf') format("truetype");
+  font-weight: 400;
+}
+
+
+:root {
+  --ion-font-family: 'IBM Plex Mono', monospace;
+
+  .logo {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    color: var(--ion-color-primary);
+    font-size: 6em;
+  }
+
+  ion-thumbnail {
+    --border-radius: 7px;
+    margin-right: 15px;
+  }
+  
+  .raised-toast {
+    top: -50px;
+  }
+  
+  .split-pane-visible > .split-pane-side {
+    max-width: 180px !important;
+  }
+  
+  // ion-content { 
+  //   --ion-background-color: var(--ion-color-light);
+  // }
+
+  // ion-toolbar {
+  //   --background: var(--ion-color-light);
+  // }
+  
+  // ion-card {
+  //   --background: var(--ion-color-lightest);
+  // }
+}

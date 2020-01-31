@@ -1,0 +1,28 @@
+
+type Venue @model {
+  id: ID!
+  name: String!
+  performances: [Performance] @connection(name: "VenuePerformances")
+  address: String!
+}
+
+type Artist @model {
+  id: ID!
+  name: String!
+  description: String!
+  image: String!
+  performances: [Performance] @connection(name: "ArtistPerformances")
+  genres: [Genre]
+}
+
+type Performance @model {
+  id: ID!
+  when: AWSDateTime!
+  venue: Venue @connection(name: "VenuePerformances")
+  artist: Artist @connection(name: "ArtistPerformances")
+}
+
+type Genre {
+  id: ID!
+  name: String!
+}

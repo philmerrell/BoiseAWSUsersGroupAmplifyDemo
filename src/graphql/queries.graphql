@@ -1,0 +1,124 @@
+# this is an auto generated file. This will be overwritten
+query GetVenue($id: ID!) {
+  getVenue(id: $id) {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    address
+  }
+}
+query ListVenues(
+  $filter: ModelVenueFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listVenues(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    nextToken
+  }
+}
+query GetArtist($id: ID!) {
+  getArtist(id: $id) {
+    id
+    name
+    description
+    image
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    genres {
+      id
+      name
+    }
+  }
+}
+query ListArtists(
+  $filter: ModelArtistFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listArtists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+    nextToken
+  }
+}
+query GetPerformance($id: ID!) {
+  getPerformance(id: $id) {
+    id
+    when
+    venue {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    artist {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+  }
+}
+query ListPerformances(
+  $filter: ModelPerformanceFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPerformances(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      when
+      venue {
+        id
+        name
+        address
+      }
+      artist {
+        id
+        name
+        description
+        image
+      }
+    }
+    nextToken
+  }
+}

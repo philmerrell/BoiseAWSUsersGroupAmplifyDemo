@@ -1,0 +1,208 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateVenue(
+  $input: CreateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  createVenue(input: $input, condition: $condition) {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    address
+  }
+}
+mutation UpdateVenue(
+  $input: UpdateVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  updateVenue(input: $input, condition: $condition) {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    address
+  }
+}
+mutation DeleteVenue(
+  $input: DeleteVenueInput!
+  $condition: ModelVenueConditionInput
+) {
+  deleteVenue(input: $input, condition: $condition) {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    address
+  }
+}
+mutation CreateArtist(
+  $input: CreateArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  createArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+    image
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    genres {
+      id
+      name
+    }
+  }
+}
+mutation UpdateArtist(
+  $input: UpdateArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  updateArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+    image
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    genres {
+      id
+      name
+    }
+  }
+}
+mutation DeleteArtist(
+  $input: DeleteArtistInput!
+  $condition: ModelArtistConditionInput
+) {
+  deleteArtist(input: $input, condition: $condition) {
+    id
+    name
+    description
+    image
+    performances {
+      items {
+        id
+        when
+      }
+      nextToken
+    }
+    genres {
+      id
+      name
+    }
+  }
+}
+mutation CreatePerformance(
+  $input: CreatePerformanceInput!
+  $condition: ModelPerformanceConditionInput
+) {
+  createPerformance(input: $input, condition: $condition) {
+    id
+    when
+    venue {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    artist {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+  }
+}
+mutation UpdatePerformance(
+  $input: UpdatePerformanceInput!
+  $condition: ModelPerformanceConditionInput
+) {
+  updatePerformance(input: $input, condition: $condition) {
+    id
+    when
+    venue {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    artist {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+  }
+}
+mutation DeletePerformance(
+  $input: DeletePerformanceInput!
+  $condition: ModelPerformanceConditionInput
+) {
+  deletePerformance(input: $input, condition: $condition) {
+    id
+    when
+    venue {
+      id
+      name
+      performances {
+        nextToken
+      }
+      address
+    }
+    artist {
+      id
+      name
+      description
+      image
+      performances {
+        nextToken
+      }
+      genres {
+        id
+        name
+      }
+    }
+  }
+}
