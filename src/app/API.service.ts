@@ -127,6 +127,28 @@ export type DeletePerformanceInput = {
   id?: string | null;
 };
 
+export type CreateUserInput = {
+  username: string;
+  email: string;
+};
+
+export type ModelUserConditionInput = {
+  username?: ModelStringInput | null;
+  email?: ModelStringInput | null;
+  and?: Array<ModelUserConditionInput | null> | null;
+  or?: Array<ModelUserConditionInput | null> | null;
+  not?: ModelUserConditionInput | null;
+};
+
+export type UpdateUserInput = {
+  username?: string | null;
+  email?: string | null;
+};
+
+export type DeleteUserInput = {
+  id?: string | null;
+};
+
 export type ModelVenueFilterInput = {
   id?: ModelIDInput | null;
   name?: ModelStringInput | null;
@@ -168,6 +190,14 @@ export type ModelPerformanceFilterInput = {
   and?: Array<ModelPerformanceFilterInput | null> | null;
   or?: Array<ModelPerformanceFilterInput | null> | null;
   not?: ModelPerformanceFilterInput | null;
+};
+
+export type ModelUserFilterInput = {
+  username?: ModelStringInput | null;
+  email?: ModelStringInput | null;
+  and?: Array<ModelUserFilterInput | null> | null;
+  or?: Array<ModelUserFilterInput | null> | null;
+  not?: ModelUserFilterInput | null;
 };
 
 export type CreateVenueMutation = {
@@ -380,6 +410,24 @@ export type DeletePerformanceMutation = {
   } | null;
 };
 
+export type CreateUserMutation = {
+  __typename: "User";
+  username: string;
+  email: string;
+};
+
+export type UpdateUserMutation = {
+  __typename: "User";
+  username: string;
+  email: string;
+};
+
+export type DeleteUserMutation = {
+  __typename: "User";
+  username: string;
+  email: string;
+};
+
 export type GetVenueQuery = {
   __typename: "Venue";
   id: string;
@@ -505,6 +553,22 @@ export type ListPerformancesQuery = {
       description: string;
       image: string;
     } | null;
+  } | null> | null;
+  nextToken: string | null;
+};
+
+export type GetUserQuery = {
+  __typename: "User";
+  username: string;
+  email: string;
+};
+
+export type ListUsersQuery = {
+  __typename: "ModelUserConnection";
+  items: Array<{
+    __typename: "User";
+    username: string;
+    email: string;
   } | null> | null;
   nextToken: string | null;
 };
@@ -717,6 +781,24 @@ export type OnDeletePerformanceSubscription = {
       name: string;
     } | null> | null;
   } | null;
+};
+
+export type OnCreateUserSubscription = {
+  __typename: "User";
+  username: string;
+  email: string;
+};
+
+export type OnUpdateUserSubscription = {
+  __typename: "User";
+  username: string;
+  email: string;
+};
+
+export type OnDeleteUserSubscription = {
+  __typename: "User";
+  username: string;
+  email: string;
 };
 
 @Injectable({
@@ -1077,6 +1159,72 @@ export class APIService {
     )) as any;
     return <DeletePerformanceMutation>response.data.deletePerformance;
   }
+  async CreateUser(
+    input: CreateUserInput,
+    condition?: ModelUserConditionInput
+  ): Promise<CreateUserMutation> {
+    const statement = `mutation CreateUser($input: CreateUserInput!, $condition: ModelUserConditionInput) {
+        createUser(input: $input, condition: $condition) {
+          __typename
+          username
+          email
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CreateUserMutation>response.data.createUser;
+  }
+  async UpdateUser(
+    input: UpdateUserInput,
+    condition?: ModelUserConditionInput
+  ): Promise<UpdateUserMutation> {
+    const statement = `mutation UpdateUser($input: UpdateUserInput!, $condition: ModelUserConditionInput) {
+        updateUser(input: $input, condition: $condition) {
+          __typename
+          username
+          email
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <UpdateUserMutation>response.data.updateUser;
+  }
+  async DeleteUser(
+    input: DeleteUserInput,
+    condition?: ModelUserConditionInput
+  ): Promise<DeleteUserMutation> {
+    const statement = `mutation DeleteUser($input: DeleteUserInput!, $condition: ModelUserConditionInput) {
+        deleteUser(input: $input, condition: $condition) {
+          __typename
+          username
+          email
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      input
+    };
+    if (condition) {
+      gqlAPIServiceArguments.condition = condition;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <DeleteUserMutation>response.data.deleteUser;
+  }
   async GetVenue(id: string): Promise<GetVenueQuery> {
     const statement = `query GetVenue($id: ID!) {
         getVenue(id: $id) {
@@ -1298,6 +1446,53 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <ListPerformancesQuery>response.data.listPerformances;
+  }
+  async GetUser(id: string): Promise<GetUserQuery> {
+    const statement = `query GetUser($id: ID!) {
+        getUser(id: $id) {
+          __typename
+          username
+          email
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {
+      id
+    };
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <GetUserQuery>response.data.getUser;
+  }
+  async ListUsers(
+    filter?: ModelUserFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<ListUsersQuery> {
+    const statement = `query ListUsers($filter: ModelUserFilterInput, $limit: Int, $nextToken: String) {
+        listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            username
+            email
+          }
+          nextToken
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <ListUsersQuery>response.data.listUsers;
   }
   OnCreateVenueListener: Observable<OnCreateVenueSubscription> = API.graphql(
     graphqlOperation(
@@ -1568,4 +1763,40 @@ export class APIService {
       }`
     )
   ) as Observable<OnDeletePerformanceSubscription>;
+
+  OnCreateUserListener: Observable<OnCreateUserSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnCreateUser {
+        onCreateUser {
+          __typename
+          username
+          email
+        }
+      }`
+    )
+  ) as Observable<OnCreateUserSubscription>;
+
+  OnUpdateUserListener: Observable<OnUpdateUserSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnUpdateUser {
+        onUpdateUser {
+          __typename
+          username
+          email
+        }
+      }`
+    )
+  ) as Observable<OnUpdateUserSubscription>;
+
+  OnDeleteUserListener: Observable<OnDeleteUserSubscription> = API.graphql(
+    graphqlOperation(
+      `subscription OnDeleteUser {
+        onDeleteUser {
+          __typename
+          username
+          email
+        }
+      }`
+    )
+  ) as Observable<OnDeleteUserSubscription>;
 }

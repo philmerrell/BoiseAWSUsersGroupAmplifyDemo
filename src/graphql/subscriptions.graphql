@@ -179,3 +179,21 @@ subscription OnDeletePerformance {
     }
   }
 }
+subscription OnCreateUser {
+  onCreateUser {
+    username
+    email
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    username
+    email
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    username
+    email
+  }
+}

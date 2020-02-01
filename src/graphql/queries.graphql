@@ -122,3 +122,22 @@ query ListPerformances(
     nextToken
   }
 }
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    username
+    email
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      username
+      email
+    }
+    nextToken
+  }
+}

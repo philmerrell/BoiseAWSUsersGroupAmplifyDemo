@@ -26,3 +26,8 @@ type Genre {
   id: ID!
   name: String!
 }
+
+type User @model {
+  username: String!
+  email: String!
+}
