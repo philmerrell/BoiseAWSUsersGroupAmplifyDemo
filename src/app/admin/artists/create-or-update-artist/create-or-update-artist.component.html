@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><span *ngIf="isUpdate">Update</span><span *ngIf="!isUpdate">Create</span> Artist</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="secondary" (click)="dismiss()">
+        Close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form [formGroup]="artistForm">
+    <ion-list>
+      <ion-list-header color="light">Artist Info</ion-list-header>
+      <ion-item>
+        <ion-label color="primary" position="floating">Artist Name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail *ngIf="artistForm.controls.image.value" >
+          <ion-img [src]="artistForm.controls.image.value"></ion-img>
+        </ion-thumbnail>
+        <ion-label color="primary" position="floating">Image</ion-label>
+        <ion-input formControlName="image"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" position="floating">Artist Name</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header color="light">Artist Performances</ion-list-header>
+    </ion-list>
+  </form>
+  <pre>
+    {{ artist | json }}
+  </pre>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" (click)="dismiss()">
+    Save
+  </ion-button>
+</ion-footer>

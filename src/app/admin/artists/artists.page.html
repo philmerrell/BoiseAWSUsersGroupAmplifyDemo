@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>artists</ion-title>
+    <ion-title><ion-icon name="lock"></ion-icon> Admin</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="ion-padding">
+    <div style="position: relative;">
+      <h1 class="page-header">Artists</h1>
+      <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+        <ion-fab-button (click)="createOrUpdateArtist()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+    <ion-list>
+      <ion-item *ngFor="let artist of artists.items" (click)="createOrUpdateArtist(artist)">
+        <ion-thumbnail>
+          <ion-img [src]="artist.image"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h1>{{ artist.name }}</h1>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <!-- <pre>
+    {{ artists | json }}
+  </pre> -->
 
 </ion-content>

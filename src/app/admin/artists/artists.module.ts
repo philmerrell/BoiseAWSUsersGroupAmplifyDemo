@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { ArtistsPageRoutingModule } from './artists-routing.module';
 
 import { ArtistsPage } from './artists.page';
+import { CreateOrUpdateArtistComponent } from './create-or-update-artist/create-or-update-artist.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     IonicModule,
-    ArtistsPageRoutingModule
+    ArtistsPageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [ArtistsPage]
+  declarations: [ArtistsPage, CreateOrUpdateArtistComponent ],
+  entryComponents: [ CreateOrUpdateArtistComponent ]
 })
 export class ArtistsPageModule {}
