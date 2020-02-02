@@ -48,9 +48,10 @@ export class ArtistsPage implements OnInit {
 
   private updateArtistArray(update) {
     // Find location in artist array, splice and replace.
-    let item = this.artists.items.find(artist => artist.id === update.id);
-    if (item) {
-      item = update;
+    let itemIndex = this.artists.items.findIndex(artist => artist.id === update.id);
+    console.log(itemIndex);
+    if (itemIndex > -1) {
+      this.artists.items.splice(itemIndex, 1, update);
     }
   }
 
