@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-create-or-update-artist',
@@ -12,7 +13,7 @@ export class CreateOrUpdateArtistComponent implements OnInit {
   isUpdate: boolean;
 
   artistForm: FormGroup = this.formBuilder.group({
-    id: [''],
+    id: ['', Validators.required ],
     name: ['', Validators.required ],
     image: ['', Validators.required ],
     description: ['', Validators.required ]
@@ -27,6 +28,8 @@ export class CreateOrUpdateArtistComponent implements OnInit {
     this.isUpdate = this.artist ? true : false;
     if (this.isUpdate) {
       this.setFormValues();
+    } else {
+      this.artistForm.controls.id.setValue(uuid());
     }
   }
 
