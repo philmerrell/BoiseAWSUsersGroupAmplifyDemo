@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from 'src/app/API.service';
+import { APIService } from '../../API.service';
 import { ModalController } from '@ionic/angular';
 import { CreateOrUpdateVenueComponent } from './create-or-update-venue/create-or-update-venue.component';
 
@@ -44,13 +44,11 @@ export class VenuesPage implements OnInit {
     } else {
       this.api.CreateVenue(data.venue);
     }
-    // this.api.CreateVenue(data);
   }
 
   private updateVenueArray(update) {
-    // Find location in Venue array, splice and replace.
+    // Find location in local venue array, splice and replace.
     const itemIndex = this.venues.items.findIndex(venue => venue.id === update.id);
-    console.log(itemIndex);
     if (itemIndex > -1) {
       this.venues.items.splice(itemIndex, 1, update);
     }
