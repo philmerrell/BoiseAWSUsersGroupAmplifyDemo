@@ -15,6 +15,7 @@ export class CreateOrUpdatePerformanceComponent implements OnInit {
   isUpdate: boolean;
   venues = { items: [] };
   artists = { items: [] };
+  isLoaded: boolean;
 
   performanceForm: FormGroup = this.formBuilder.group({
     id: ['', Validators.required ],
@@ -31,6 +32,7 @@ export class CreateOrUpdatePerformanceComponent implements OnInit {
   async ngOnInit() {
     this.venues = await this.api.ListVenues();
     this.artists = await this.api.ListArtists();
+    this.isLoaded = true;
     this.isUpdate = this.performance ? true : false;
     if (this.isUpdate) {
       this.setFormValues();
@@ -50,11 +52,20 @@ export class CreateOrUpdatePerformanceComponent implements OnInit {
     }
   }
 
+  compareVenue = (o1, o2) => {
+    return o1 && o2 ? o1 === o2 : o1 === o2;
+  }
+
+  compareArtist = (o1, o2) => {
+    return o1 && o2 ? o1 === o2 : o1 === o2;
+  }
+
+
   private setFormValues() {
     this.performanceForm.setValue({
       id: this.performance.id,
-      performanceArtistId: this.performance.artist,
-      performanceVenueId: this.performance.venue,
+      performanceArtistId: this.performance.artist.id,
+      performanceVenueId: this.performance.venue.id,
       when: this.performance.when
     });
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AmplifyService } from 'aws-amplify-angular';
-import {Auth} from 'aws-amplify';
+import { Auth } from 'aws-amplify';
+import { APIService } from '../API.service';
 
 @Component({
   selector: 'app-tab1',
@@ -10,10 +11,12 @@ import {Auth} from 'aws-amplify';
 export class Tab1Page {
   signedIn: boolean;
   user: any;
-  greeting: string;
+  artists = { items: [] };
 
 
-  constructor(private amplifyService: AmplifyService) {
+  constructor(
+    private api: APIService,
+    private amplifyService: AmplifyService) {
     this.amplifyService.authStateChange$
       .subscribe(authState => {
         this.signedIn = authState.state === 'signedIn';
@@ -21,9 +24,12 @@ export class Tab1Page {
           this.user = null;
         } else {
           this.user = authState.user;
-          this.greeting = 'Hello ' + this.user.username;
         }
       });
+  }
+
+  async ionViewDidEnter() {
+    this.artists = await this.api.ListArtists();
   }
 
   signOut() {

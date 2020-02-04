@@ -10,19 +10,18 @@
 </ion-header>
 <ion-content>
 
-  <form [formGroup]="performanceForm">
+  <form *ngIf="isLoaded" [formGroup]="performanceForm">
     <ion-list>
       <ion-list-header color="light">Performance Info</ion-list-header>
-      
       <ion-item>
         <ion-label color="primary" position="floating">Artist</ion-label>
-        <ion-select formControlName="performanceArtistId" okText="Okay" cancelText="Dismiss">
+        <ion-select [compareWith]="compareArtist" formControlName="performanceArtistId" okText="Okay" cancelText="Dismiss">
           <ion-select-option *ngFor="let artist of artists.items" [value]="artist.id">{{ artist.name }}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label color="primary" position="floating">Venue</ion-label>
-        <ion-select formControlName="performanceVenueId" okText="Okay" cancelText="Dismiss">
+        <ion-select [compareWith]="compareVenue" formControlName="performanceVenueId" okText="Okay" cancelText="Dismiss">
           <ion-select-option *ngFor="let venue of venues.items" [value]="venue.id">{{ venue.name }}</ion-select-option>
         </ion-select>
       </ion-item>
