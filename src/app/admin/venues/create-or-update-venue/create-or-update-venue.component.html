@@ -1,3 +1,37 @@
-<p>
-  create-or-update-venue works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title><span *ngIf="isUpdate">Update</span><span *ngIf="!isUpdate">Create</span> Venue</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="secondary" (click)="dismiss()">
+        Close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form [formGroup]="venueForm">
+    <ion-list>
+      <ion-list-header color="light">Venue Info</ion-list-header>
+      <ion-item>
+        <ion-label color="primary" position="floating">Venue Name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" position="floating">Address</ion-label>
+        <ion-textarea formControlName="address"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <!-- <ion-list>
+      <ion-list-header color="light">Artist Performances</ion-list-header>
+    </ion-list> -->
+  </form>
+  <pre>
+    {{ venue | json }}
+  </pre>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" (click)="dismiss()">
+    Save
+  </ion-button>
+</ion-footer>

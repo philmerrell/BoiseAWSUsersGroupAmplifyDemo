@@ -15,44 +15,45 @@ export class VenuesPage implements OnInit {
     private api: APIService,
     private modalController: ModalController) { }
 
-    ngOnInit() {}
+  ngOnInit() { }
 
-    async ionViewDidEnter() {
-      this.venues = await this.api.ListVenues();
+  async ionViewDidEnter() {
+    this.venues = await this.api.ListVenues();
+  }
+
+  async createOrUpdateVenue(venue?) {
+    const modal = await this.modalController.create({
+      component: CreateOrUpdateVenueComponent,
+      componentProps: { venue }
+    });
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    if (data) {
+      this.saveVenue(data);
     }
-  
-    async createOrUpdateVenue(Venue?) {
-      const modal = await this.modalController.create({
-        component: CreateOrUpdateVenueComponent,
-        componentProps: { Venue }
-      });
-      await modal.present();
-  
-      const { data } = await modal.onWillDismiss();
-      if (data) {
-        this.saveVenue(data);
+  }
+
+  async saveVenue(data) {
+    if (data.isUpdate) {
+      console.log(data.venue);
+      const result = await this.api.UpdateVenue(data.venue);
+      if (result) {
+        this.updateVenueArray(result);
       }
+    } else {
+      this.api.CreateVenue(data.venue);
     }
-  
-    async saveVenue(data) {
-      if (data.isUpdate) {
-        const result = await this.api.UpdateVenue(data.venue);
-        if (result) {
-          this.updateVenueArray(result);
-        }
-      } else {
-        this.api.CreateVenue(data.Venue);
-      }
-      // this.api.CreateVenue(data);
+    // this.api.CreateVenue(data);
+  }
+
+  private updateVenueArray(update) {
+    // Find location in Venue array, splice and replace.
+    const itemIndex = this.venues.items.findIndex(venue => venue.id === update.id);
+    console.log(itemIndex);
+    if (itemIndex > -1) {
+      this.venues.items.splice(itemIndex, 1, update);
     }
-  
-    private updateVenueArray(update) {
-      // Find location in Venue array, splice and replace.
-      let itemIndex = this.venues.items.findIndex(venue => venue.id === update.id);
-      console.log(itemIndex);
-      if (itemIndex > -1) {
-        this.venues.items.splice(itemIndex, 1, update);
-      }
-    }
+  }
 
 }
