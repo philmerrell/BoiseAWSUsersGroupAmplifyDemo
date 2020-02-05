@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Three
-    </ion-title>
+    <ion-title><ion-icon name="lock"></ion-icon> Admin</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div class="ion-padding">
+    <h1 class="page-header">Venues</h1>
+    <ion-list>
+      <ion-item *ngFor="let venue of venues.items" >
+        <ion-label>
+          <h1>{{ venue.name }}</h1>
+          <p>{{ venue.address }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <!-- <pre>
+    {{ artists | json }}
+  </pre> -->
+
+</ion-content>

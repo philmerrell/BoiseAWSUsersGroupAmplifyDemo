@@ -13,9 +13,9 @@ import { APIService } from '../../../API.service';
 export class CreateOrUpdatePerformanceComponent implements OnInit {
   @Input() performance;
   isUpdate: boolean;
+  isLoaded: boolean;
   venues = { items: [] };
   artists = { items: [] };
-  isLoaded: boolean;
 
   performanceForm: FormGroup = this.formBuilder.group({
     id: ['', Validators.required ],

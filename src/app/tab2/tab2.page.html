@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Schedule
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div class="ion-padding">
+    <h1 class="page-header">Schedule</h1>
+    <ion-list>
+      <ion-item *ngFor="let performance of performances.items">
+        <ion-label>
+          <h1>{{ performance.artist.name }}</h1>
+          <h2>{{ performance.venue.name }}</h2>
+          <p>{{ performance.when | date }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <!-- <pre>
+    {{ artists | json }}
+  </pre> -->
+</ion-content>

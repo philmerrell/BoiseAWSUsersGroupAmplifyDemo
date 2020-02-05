@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { APIService } from '../API.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  performances = { items: [] };
 
+  constructor(private api: APIService) {}
+
+  async ionViewDidEnter() {
+    this.performances = await this.api.ListPerformances();
+  }
 }

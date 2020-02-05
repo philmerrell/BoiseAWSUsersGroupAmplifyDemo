@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { APIService, ListVenuesQuery } from '../API.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  venues = { items: [] } as ListVenuesQuery;
+
+  constructor(private api: APIService) {}
+
+  async ionViewDidEnter() {
+    this.venues = await this.api.ListVenues();
+  }
 
 }
