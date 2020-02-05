@@ -8,12 +8,15 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'artists',
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+            loadChildren: () => import('../artists/artists.module').then(m => m.ArtistsPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../artists/artist-detail/artist-detail.module').then( m => m.ArtistDetailPageModule)
           }
         ]
       },
@@ -46,7 +49,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/artists',
     pathMatch: 'full'
   }
 ];

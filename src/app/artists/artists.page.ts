@@ -4,11 +4,11 @@ import { Auth } from 'aws-amplify';
 import { APIService } from '../API.service';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-artists',
+  templateUrl: 'artists.page.html',
+  styleUrls: ['artists.page.scss']
 })
-export class Tab1Page {
+export class ArtistsPage {
   signedIn: boolean;
   user: any;
   artists = { items: [] };

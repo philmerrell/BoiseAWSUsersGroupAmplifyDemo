@@ -38,10 +38,13 @@ query GetArtist($id: ID!) {
     image
     performances {
       items {
-        id
+        venue {
+          address
+          id
+          name
+        }
         when
       }
-      nextToken
     }
     genres {
       id

@@ -469,10 +469,14 @@ export type GetArtistQuery = {
     __typename: "ModelPerformanceConnection";
     items: Array<{
       __typename: "Performance";
-      id: string;
+      venue: {
+        __typename: "Venue";
+        address: string;
+        id: string;
+        name: string;
+      } | null;
       when: string;
     } | null> | null;
-    nextToken: string | null;
   } | null;
   genres: Array<{
     __typename: "Genre";
@@ -1299,10 +1303,14 @@ export class APIService {
             __typename
             items {
               __typename
-              id
+              venue {
+                __typename
+                address
+                id
+                name
+              }
               when
             }
-            nextToken
           }
           genres {
             __typename
