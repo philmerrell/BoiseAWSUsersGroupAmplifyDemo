@@ -210,6 +210,19 @@ export type CreateVenueMutation = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -226,6 +239,19 @@ export type UpdateVenueMutation = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -242,6 +268,19 @@ export type DeleteVenueMutation = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -260,6 +299,19 @@ export type CreateArtistMutation = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -282,6 +334,19 @@ export type UpdateArtistMutation = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -304,6 +369,19 @@ export type DeleteArtistMutation = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -324,6 +402,11 @@ export type CreatePerformanceMutation = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -336,6 +419,11 @@ export type CreatePerformanceMutation = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -356,6 +444,11 @@ export type UpdatePerformanceMutation = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -368,6 +461,11 @@ export type UpdatePerformanceMutation = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -388,6 +486,11 @@ export type DeletePerformanceMutation = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -400,6 +503,11 @@ export type DeletePerformanceMutation = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -438,6 +546,19 @@ export type GetVenueQuery = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -452,6 +573,11 @@ export type ListVenuesQuery = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -471,6 +597,19 @@ export type GetArtistQuery = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -491,6 +630,11 @@ export type ListArtistsQuery = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -512,6 +656,11 @@ export type GetPerformanceQuery = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -524,6 +673,11 @@ export type GetPerformanceQuery = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -544,6 +698,10 @@ export type ListPerformancesQuery = {
       __typename: "Venue";
       id: string;
       name: string;
+      performances: {
+        __typename: "ModelPerformanceConnection";
+        nextToken: string | null;
+      } | null;
       address: string;
     } | null;
     artist: {
@@ -552,6 +710,15 @@ export type ListPerformancesQuery = {
       name: string;
       description: string;
       image: string;
+      performances: {
+        __typename: "ModelPerformanceConnection";
+        nextToken: string | null;
+      } | null;
+      genres: Array<{
+        __typename: "Genre";
+        id: string;
+        name: string;
+      } | null> | null;
     } | null;
   } | null> | null;
   nextToken: string | null;
@@ -583,6 +750,19 @@ export type OnCreateVenueSubscription = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -599,6 +779,19 @@ export type OnUpdateVenueSubscription = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -615,6 +808,19 @@ export type OnDeleteVenueSubscription = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -633,6 +839,19 @@ export type OnCreateArtistSubscription = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -655,6 +874,19 @@ export type OnUpdateArtistSubscription = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -677,6 +909,19 @@ export type OnDeleteArtistSubscription = {
       __typename: "Performance";
       id: string;
       when: string;
+      venue: {
+        __typename: "Venue";
+        id: string;
+        name: string;
+        address: string;
+      } | null;
+      artist: {
+        __typename: "Artist";
+        id: string;
+        name: string;
+        description: string;
+        image: string;
+      } | null;
     } | null> | null;
     nextToken: string | null;
   } | null;
@@ -697,6 +942,11 @@ export type OnCreatePerformanceSubscription = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -709,6 +959,11 @@ export type OnCreatePerformanceSubscription = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -729,6 +984,11 @@ export type OnUpdatePerformanceSubscription = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -741,6 +1001,11 @@ export type OnUpdatePerformanceSubscription = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -761,6 +1026,11 @@ export type OnDeletePerformanceSubscription = {
     name: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     address: string;
@@ -773,6 +1043,11 @@ export type OnDeletePerformanceSubscription = {
     image: string;
     performances: {
       __typename: "ModelPerformanceConnection";
+      items: Array<{
+        __typename: "Performance";
+        id: string;
+        when: string;
+      } | null> | null;
       nextToken: string | null;
     } | null;
     genres: Array<{
@@ -820,6 +1095,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -852,6 +1140,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -884,6 +1185,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -918,6 +1232,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -956,6 +1283,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -994,6 +1334,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1030,6 +1383,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1042,6 +1400,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {
@@ -1078,6 +1441,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1090,6 +1458,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {
@@ -1126,6 +1499,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1138,6 +1516,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {
@@ -1237,6 +1620,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1265,6 +1661,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1301,6 +1702,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1335,6 +1749,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {
@@ -1373,6 +1792,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1385,6 +1809,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {
@@ -1419,6 +1848,10 @@ export class APIService {
               __typename
               id
               name
+              performances {
+                __typename
+                nextToken
+              }
               address
             }
             artist {
@@ -1427,6 +1860,15 @@ export class APIService {
               name
               description
               image
+              performances {
+                __typename
+                nextToken
+              }
+              genres {
+                __typename
+                id
+                name
+              }
             }
           }
           nextToken
@@ -1507,6 +1949,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1529,6 +1984,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1551,6 +2019,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1575,6 +2056,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1603,6 +2097,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1631,6 +2138,19 @@ export class APIService {
               __typename
               id
               when
+              venue {
+                __typename
+                id
+                name
+                address
+              }
+              artist {
+                __typename
+                id
+                name
+                description
+                image
+              }
             }
             nextToken
           }
@@ -1659,6 +2179,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1671,6 +2196,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {
@@ -1699,6 +2229,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1711,6 +2246,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {
@@ -1739,6 +2279,11 @@ export class APIService {
             name
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             address
@@ -1751,6 +2296,11 @@ export class APIService {
             image
             performances {
               __typename
+              items {
+                __typename
+                id
+                when
+              }
               nextToken
             }
             genres {

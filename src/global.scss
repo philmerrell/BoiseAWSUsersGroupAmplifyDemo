@@ -58,6 +58,13 @@
     --border-radius: 7px;
     margin-right: 15px;
   }
+
+  ion-title {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    color: var(--ion-color-primary);
+    font-size: 1.8em;
+  }
   
   .raised-toast {
     top: -50px;

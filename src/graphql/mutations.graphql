@@ -10,6 +10,17 @@ mutation CreateVenue(
       items {
         id
         when
+        venue {
+          id
+          name
+          address
+        }
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
       nextToken
     }
@@ -27,6 +38,17 @@ mutation UpdateVenue(
       items {
         id
         when
+        venue {
+          id
+          name
+          address
+        }
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
       nextToken
     }
@@ -44,6 +66,17 @@ mutation DeleteVenue(
       items {
         id
         when
+        venue {
+          id
+          name
+          address
+        }
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
       nextToken
     }
@@ -63,6 +96,17 @@ mutation CreateArtist(
       items {
         id
         when
+        venue {
+          id
+          name
+          address
+        }
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
       nextToken
     }
@@ -85,6 +129,17 @@ mutation UpdateArtist(
       items {
         id
         when
+        venue {
+          id
+          name
+          address
+        }
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
       nextToken
     }
@@ -107,6 +162,17 @@ mutation DeleteArtist(
       items {
         id
         when
+        venue {
+          id
+          name
+          address
+        }
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
       nextToken
     }
@@ -127,6 +193,10 @@ mutation CreatePerformance(
       id
       name
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       address
@@ -137,6 +207,10 @@ mutation CreatePerformance(
       description
       image
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       genres {
@@ -157,6 +231,10 @@ mutation UpdatePerformance(
       id
       name
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       address
@@ -167,6 +245,10 @@ mutation UpdatePerformance(
       description
       image
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       genres {
@@ -187,6 +269,10 @@ mutation DeletePerformance(
       id
       name
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       address
@@ -197,6 +283,10 @@ mutation DeletePerformance(
       description
       image
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       genres {

@@ -7,6 +7,17 @@ query GetVenue($id: ID!) {
       items {
         id
         when
+        venue {
+          id
+          name
+          address
+        }
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
       nextToken
     }
@@ -23,6 +34,10 @@ query ListVenues(
       id
       name
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       address
@@ -38,13 +53,21 @@ query GetArtist($id: ID!) {
     image
     performances {
       items {
+        id
+        when
         venue {
-          address
           id
           name
+          address
         }
-        when
+        artist {
+          id
+          name
+          description
+          image
+        }
       }
+      nextToken
     }
     genres {
       id
@@ -64,6 +87,10 @@ query ListArtists(
       description
       image
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       genres {
@@ -82,6 +109,10 @@ query GetPerformance($id: ID!) {
       id
       name
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       address
@@ -92,6 +123,10 @@ query GetPerformance($id: ID!) {
       description
       image
       performances {
+        items {
+          id
+          when
+        }
         nextToken
       }
       genres {
@@ -113,6 +148,9 @@ query ListPerformances(
       venue {
         id
         name
+        performances {
+          nextToken
+        }
         address
       }
       artist {
@@ -120,6 +158,13 @@ query ListPerformances(
         name
         description
         image
+        performances {
+          nextToken
+        }
+        genres {
+          id
+          name
+        }
       }
     }
     nextToken

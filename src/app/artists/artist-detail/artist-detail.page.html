@@ -7,31 +7,34 @@
 <ion-content>
   <div *ngIf="artist">
   
-    <div style="background: var(--ion-color-secondary)">
+    <div style="background: var(--ion-color-tertiary)">
       <ion-grid>
         <ion-row>
           <ion-col>
             <ion-img [src]="artist.image"></ion-img>
           </ion-col>
-          <ion-col>
+          <ion-col class="ion-align-self-center">
             <div class="ion-padding">
-              <h1>{{ artist.name }}</h1>
+              <h1 class="page-header">{{ artist.name }}</h1>
             </div>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
     <div *ngIf="artist.performances.items.length">
-      <h2>Performances</h2>
       <ion-list>
+        <ion-list-header>Performances</ion-list-header>
         <ion-item *ngFor="let performance of artist.performances.items">
+          <ion-icon slot="start" name="calendar"></ion-icon>
           <ion-label>
             <h3>{{ performance.when | date }}</h3>
+            <p>{{ performance.venue.name }}</p>
           </ion-label>
         </ion-item>
       </ion-list>
     </div>
     <div class="ion-padding">
+      <h1>About</h1>
     <p>{{ artist.description }}</p>
     </div>
     <pre>
