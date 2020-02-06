@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { APIService } from '../API.service';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-schedule',
+  templateUrl: 'schedule.page.html',
+  styleUrls: ['schedule.page.scss']
 })
-export class Tab2Page {
+export class SchedulePage {
 
   performances = { items: [] };
 
