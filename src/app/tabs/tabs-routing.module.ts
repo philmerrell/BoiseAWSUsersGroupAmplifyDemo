@@ -21,17 +21,17 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'schedule',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../schedule/schedule.module').then(m => m.Tab2PageModule)
+              import('../schedule/schedule.module').then(m => m.SchedulePageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'venues',
         children: [
           {
             path: '',
