@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/artists"></ion-back-button>
+    </ion-buttons>
     <ion-title>Artists</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,15 +10,15 @@
 <ion-content>
   <div *ngIf="artist">
   
-    <div style="background: var(--ion-color-tertiary)">
+    <div style="background: var(--ion-color-primary)">
       <ion-grid>
-        <ion-row>
+        <ion-row class="ion-align-items-center">
           <ion-col>
             <ion-img [src]="artist.image"></ion-img>
           </ion-col>
           <ion-col class="ion-align-self-center">
-            <div class="ion-padding">
-              <h1 class="page-header">{{ artist.name }}</h1>
+            <div class="ion-padding" style="text-align: center;">
+              <h1 class="artist-header">{{ artist.name }}</h1>
             </div>
           </ion-col>
         </ion-row>
@@ -23,7 +26,7 @@
     </div>
     <div *ngIf="artist.performances.items.length">
       <ion-list>
-        <ion-list-header>Performances</ion-list-header>
+        <ion-list-header><ion-text color="secondary">Performances</ion-text></ion-list-header>
         <ion-item *ngFor="let performance of artist.performances.items">
           <ion-icon slot="start" name="calendar"></ion-icon>
           <ion-label>
@@ -34,11 +37,12 @@
       </ion-list>
     </div>
     <div class="ion-padding">
-      <h1>About</h1>
-    <p>{{ artist.description }}</p>
-    </div>
-    <pre>
+      <ion-text color="secondary">
+        <h1>About</h1>
+      </ion-text>
+      <div [innerHTML]="artist.description | trustAsHtml"></div></div>
+    <!-- <pre>
       {{ artist | json }}
-    </pre>
+    </pre> -->
   </div>
 </ion-content>

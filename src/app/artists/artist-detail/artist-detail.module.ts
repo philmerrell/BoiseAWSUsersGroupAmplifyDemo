@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ArtistDetailPageRoutingModule } from './artist-detail-routing.module';
 
 import { ArtistDetailPage } from './artist-detail.page';
+import { TrustAsHtmlPipe } from 'src/app/trust-as-html.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ArtistDetailPage } from './artist-detail.page';
     IonicModule,
     ArtistDetailPageRoutingModule
   ],
-  declarations: [ArtistDetailPage]
+  declarations: [ArtistDetailPage, TrustAsHtmlPipe]
 })
 export class ArtistDetailPageModule {}

@@ -1,0 +1,14 @@
+ion-grid {
+  --ion-grid-padding: 0;
+}
+
+ion-col {
+  --ion-grid-column-padding: 0;
+}
+
+.artist-header {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  color: var(--ion-color-light);
+  font-size: 2em;
+}

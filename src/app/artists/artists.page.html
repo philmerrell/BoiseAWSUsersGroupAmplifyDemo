@@ -16,32 +16,26 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="signedIn">
+  <!-- <ion-card *ngIf="signedIn">
     <ion-card-content>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <ion-list>
     <ion-grid>
-      <ion-row>
+      <ion-row *ngIf="artists.items.length">
         <ion-col *ngFor="let artist of artists.items" size="12" size-sm="6" size-md="6" size-lg="4" size-xl="3">
           <ion-card [routerLink]="'/tabs/artists/' + artist.id">
             <ion-img [src]="artist.image"></ion-img>
-            <!-- <ion-card-content> -->
-              <!-- <div class="ion-padding"> -->
-                <ion-item lines="none">
-                  <ion-label>
-                    <h4 style="color: var(--ion-color-dark)">{{ artist.name }}</h4>
-                  </ion-label>
-                </ion-item>
-                <!-- <p>{{ playlist.trackCount }} track<span *ngIf="playlist.trackCount > 1">s</span> • {{ playlist.duration | duration }}</p> -->
-
-              <!-- </div> -->
-              
-            <!-- </ion-card-content> -->
+              <ion-item lines="none">
+                <ion-label>
+                  <h4 style="color: var(--ion-color-dark)">{{ artist.name }}</h4>
+                </ion-label>
+              </ion-item>
           </ion-card>
         </ion-col>
       </ion-row>
+  
     </ion-grid>
   </ion-list>
 </ion-content>
