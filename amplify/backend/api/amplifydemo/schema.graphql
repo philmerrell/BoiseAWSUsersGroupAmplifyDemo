@@ -1,5 +1,10 @@
 
-type Venue @model {
+type Venue @model
+@auth(
+    rules: [
+      { allow: groups, groups: ["Admins"], operations: [create, update, delete]}
+    ])
+{
   id: ID!
   name: String!
   performances: [Performance] @connection(name: "VenuePerformances")

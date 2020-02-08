@@ -28,7 +28,7 @@
       <ion-list>
         <ion-list-header><ion-text color="secondary">Performances</ion-text></ion-list-header>
         <ion-item *ngFor="let performance of artist.performances.items">
-          <ion-icon slot="start" name="calendar"></ion-icon>
+          <ion-icon slot="start" name="calendar" color="primary"></ion-icon>
           <ion-label>
             <h3>{{ performance.when | date }}</h3>
             <p>{{ performance.venue.name }}</p>

@@ -19,6 +19,7 @@ export class ArtistsPage {
     private amplifyService: AmplifyService) {
     this.amplifyService.authStateChange$
       .subscribe(authState => {
+        console.log(authState);
         this.signedIn = authState.state === 'signedIn';
         if (!authState.user) {
           this.user = null;
