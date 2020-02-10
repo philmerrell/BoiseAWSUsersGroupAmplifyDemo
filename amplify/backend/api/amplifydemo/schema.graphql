@@ -1,9 +1,11 @@
 
-type Venue @model
+type Venue
+@model
 @auth(
-    rules: [
-      { allow: groups, groups: ["Admins"], operations: [create, update, delete]}
-    ])
+  rules: [
+    { allow: public, provider: apiKey, operations: [read] },
+    { allow: groups, groups: ["Admins"], operations: [create, update, delete, read] }
+  ])
 {
   id: ID!
   name: String!
@@ -20,7 +22,9 @@ type Artist @model {
   genres: [Genre]
 }
 
-type Performance @model {
+type Performance @model
+@key(fields: ["when"])
+{
   id: ID!
   when: AWSDateTime!
   venue: Venue @connection(name: "VenuePerformances")

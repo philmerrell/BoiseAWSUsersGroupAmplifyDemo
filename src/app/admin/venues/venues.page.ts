@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../API.service';
 import { ModalController } from '@ionic/angular';
 import { CreateOrUpdateVenueComponent } from './create-or-update-venue/create-or-update-venue.component';
+import { API } from 'aws-amplify';
 
 @Component({
   selector: 'app-venues',
   templateUrl: './venues.page.html',
   styleUrls: ['./venues.page.scss'],
 })
-export class VenuesPage implements OnInit {
+export class VenuesPage {
   venues = { items: [] };
 
   constructor(
     private api: APIService,
     private modalController: ModalController) { }
 
-  ngOnInit() { }
 
   async ionViewDidEnter() {
     this.venues = await this.api.ListVenues();

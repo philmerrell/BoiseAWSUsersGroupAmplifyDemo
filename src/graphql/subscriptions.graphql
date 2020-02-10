@@ -7,16 +7,16 @@ subscription OnCreateVenue {
       items {
         id
         when
-        venue {
-          id
-          name
-          address
-        }
         artist {
           id
           name
           description
           image
+        }
+        venue {
+          id
+          name
+          address
         }
       }
       nextToken
@@ -32,16 +32,16 @@ subscription OnUpdateVenue {
       items {
         id
         when
-        venue {
-          id
-          name
-          address
-        }
         artist {
           id
           name
           description
           image
+        }
+        venue {
+          id
+          name
+          address
         }
       }
       nextToken
@@ -57,16 +57,16 @@ subscription OnDeleteVenue {
       items {
         id
         when
-        venue {
-          id
-          name
-          address
-        }
         artist {
           id
           name
           description
           image
+        }
+        venue {
+          id
+          name
+          address
         }
       }
       nextToken
@@ -84,16 +84,16 @@ subscription OnCreateArtist {
       items {
         id
         when
-        venue {
-          id
-          name
-          address
-        }
         artist {
           id
           name
           description
           image
+        }
+        venue {
+          id
+          name
+          address
         }
       }
       nextToken
@@ -114,16 +114,16 @@ subscription OnUpdateArtist {
       items {
         id
         when
-        venue {
-          id
-          name
-          address
-        }
         artist {
           id
           name
           description
           image
+        }
+        venue {
+          id
+          name
+          address
         }
       }
       nextToken
@@ -144,16 +144,16 @@ subscription OnDeleteArtist {
       items {
         id
         when
-        venue {
-          id
-          name
-          address
-        }
         artist {
           id
           name
           description
           image
+        }
+        venue {
+          id
+          name
+          address
         }
       }
       nextToken
@@ -168,18 +168,6 @@ subscription OnCreatePerformance {
   onCreatePerformance {
     id
     when
-    venue {
-      id
-      name
-      performances {
-        items {
-          id
-          when
-        }
-        nextToken
-      }
-      address
-    }
     artist {
       id
       name
@@ -196,6 +184,18 @@ subscription OnCreatePerformance {
         id
         name
       }
+    }
+    venue {
+      id
+      name
+      performances {
+        items {
+          id
+          when
+        }
+        nextToken
+      }
+      address
     }
   }
 }
@@ -203,18 +203,6 @@ subscription OnUpdatePerformance {
   onUpdatePerformance {
     id
     when
-    venue {
-      id
-      name
-      performances {
-        items {
-          id
-          when
-        }
-        nextToken
-      }
-      address
-    }
     artist {
       id
       name
@@ -231,6 +219,18 @@ subscription OnUpdatePerformance {
         id
         name
       }
+    }
+    venue {
+      id
+      name
+      performances {
+        items {
+          id
+          when
+        }
+        nextToken
+      }
+      address
     }
   }
 }
@@ -238,18 +238,6 @@ subscription OnDeletePerformance {
   onDeletePerformance {
     id
     when
-    venue {
-      id
-      name
-      performances {
-        items {
-          id
-          when
-        }
-        nextToken
-      }
-      address
-    }
     artist {
       id
       name
@@ -266,6 +254,18 @@ subscription OnDeletePerformance {
         id
         name
       }
+    }
+    venue {
+      id
+      name
+      performances {
+        items {
+          id
+          when
+        }
+        nextToken
+      }
+      address
     }
   }
 }

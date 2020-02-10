@@ -1,50 +1,4 @@
 # this is an auto generated file. This will be overwritten
-query GetVenue($id: ID!) {
-  getVenue(id: $id) {
-    id
-    name
-    performances {
-      items {
-        id
-        when
-        venue {
-          id
-          name
-          address
-        }
-        artist {
-          id
-          name
-          description
-          image
-        }
-      }
-      nextToken
-    }
-    address
-  }
-}
-query ListVenues(
-  $filter: ModelVenueFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listVenues(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      performances {
-        items {
-          id
-          when
-        }
-        nextToken
-      }
-      address
-    }
-    nextToken
-  }
-}
 query GetArtist($id: ID!) {
   getArtist(id: $id) {
     id
@@ -55,16 +9,16 @@ query GetArtist($id: ID!) {
       items {
         id
         when
-        venue {
-          id
-          name
-          address
-        }
         artist {
           id
           name
           description
           image
+        }
+        venue {
+          id
+          name
+          address
         }
       }
       nextToken
@@ -105,18 +59,6 @@ query GetPerformance($id: ID!) {
   getPerformance(id: $id) {
     id
     when
-    venue {
-      id
-      name
-      performances {
-        items {
-          id
-          when
-        }
-        nextToken
-      }
-      address
-    }
     artist {
       id
       name
@@ -134,6 +76,18 @@ query GetPerformance($id: ID!) {
         name
       }
     }
+    venue {
+      id
+      name
+      performances {
+        items {
+          id
+          when
+        }
+        nextToken
+      }
+      address
+    }
   }
 }
 query ListPerformances(
@@ -145,14 +99,6 @@ query ListPerformances(
     items {
       id
       when
-      venue {
-        id
-        name
-        performances {
-          nextToken
-        }
-        address
-      }
       artist {
         id
         name
@@ -165,6 +111,14 @@ query ListPerformances(
           id
           name
         }
+      }
+      venue {
+        id
+        name
+        performances {
+          nextToken
+        }
+        address
       }
     }
     nextToken
@@ -187,5 +141,51 @@ query ListUsers(
       email
     }
     nextToken
+  }
+}
+query ListVenues(
+  $filter: ModelVenueFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listVenues(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      performances {
+        items {
+          id
+          when
+        }
+        nextToken
+      }
+      address
+    }
+    nextToken
+  }
+}
+query GetVenue($id: ID!) {
+  getVenue(id: $id) {
+    id
+    name
+    performances {
+      items {
+        id
+        when
+        artist {
+          id
+          name
+          description
+          image
+        }
+        venue {
+          id
+          name
+          address
+        }
+      }
+      nextToken
+    }
+    address
   }
 }
