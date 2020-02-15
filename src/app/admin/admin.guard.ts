@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGuard implements CanLoad {
 
-  constructor(private authService: AuthService) {}
-
+  constructor(private authService: AuthService, private router: Router) {}
 
   canLoad(
     route: Route,

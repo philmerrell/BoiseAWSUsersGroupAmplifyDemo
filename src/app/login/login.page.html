@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="!signedIn">
+    <ion-card-content>
+      <amplify-authenticator framework="Ionic"></amplify-authenticator>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

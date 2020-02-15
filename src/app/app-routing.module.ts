@@ -10,13 +10,14 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
-    canLoad: [ AdminGuard ]
+    canActivate: [ AdminGuard ]
   }
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ AdminGuard ]
 })
 export class AppRoutingModule {}

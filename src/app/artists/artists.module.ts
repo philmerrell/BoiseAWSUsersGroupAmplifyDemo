@@ -9,8 +9,6 @@ import { AmplifyIonicModule, AmplifyAngularModule } from 'aws-amplify-angular';
 @NgModule({
   imports: [
     IonicModule,
-    AmplifyAngularModule,
-    AmplifyIonicModule,
     CommonModule,
     FormsModule,
     RouterModule.forChild([{ path: '', component: ArtistsPage }])
