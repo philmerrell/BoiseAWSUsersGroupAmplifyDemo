@@ -1,15 +1,18 @@
-<ion-header>
+<ion-header translucent="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Artists
-    </ion-title>
+    <ion-title>Artists</ion-title>
     <ion-buttons slot="end">
       <ion-button *ngIf="signedIn" (click)="signOut()">Sign Out</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Artists</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
   <!-- <ion-card *ngIf="signedIn">
     <ion-card-content>

@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header translucent="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/artists"></ion-back-button>
@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
   <div *ngIf="artist">
   
     <div style="background: var(--ion-color-primary)">
@@ -30,7 +30,7 @@
         <ion-item *ngFor="let performance of artist.performances.items">
           <ion-icon slot="start" name="calendar" color="primary"></ion-icon>
           <ion-label>
-            <h3>{{ performance.when | date }}</h3>
+            <h3>{{ performance.when | date:'EEEE, MMMM d, h:mm a' }}</h3>
             <p>{{ performance.venue.name }}</p>
           </ion-label>
         </ion-item>
@@ -40,7 +40,8 @@
       <ion-text color="secondary">
         <h1>About</h1>
       </ion-text>
-      <div [innerHTML]="artist.description | trustAsHtml"></div></div>
+      <ion-text [innerHTML]="artist.description | trustAsHtml"></ion-text>
+    </div>
     <!-- <pre>
       {{ artist | json }}
     </pre> -->

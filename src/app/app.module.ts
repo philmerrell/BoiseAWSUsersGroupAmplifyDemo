@@ -10,14 +10,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
-import { TrustAsHtmlPipe } from './trust-as-html.pipe';
 
 
 
 @NgModule({
   declarations: [AppComponent ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AmplifyAngularModule ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot({
+      mode: 'ios'
+    }),
+    AppRoutingModule,
+    AmplifyAngularModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
