@@ -42,7 +42,8 @@ export class VenuesPage {
         this.updateVenueArray(result);
       }
     } else {
-      this.api.CreateVenue(data.venue);
+      const result = await this.api.CreateVenue(data.venue);
+      this.venues.items.unshift(result);
     }
   }
 

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { AmplifyService } from 'aws-amplify-angular';
-import { Auth } from 'aws-amplify';
-import { APIService } from '../API.service';
 import { ArtistsService } from './artists.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-artists',
@@ -10,31 +8,29 @@ import { ArtistsService } from './artists.service';
   styleUrls: ['artists.page.scss']
 })
 export class ArtistsPage {
+  artists = { items: [] };
   signedIn: boolean;
   user: any;
-  artists = { items: [] };
+  viewIsReady: boolean;
 
 
   constructor(
     private artistsService: ArtistsService,
-    private amplifyService: AmplifyService) {
-    this.amplifyService.authStateChange$
-      .subscribe(authState => {
-        console.log(authState);
-        this.signedIn = authState.state === 'signedIn';
-        if (!authState.user) {
-          this.user = null;
-        } else {
-          this.user = authState.user;
-        }
-      });
-  }
+    private authService: AuthService) {}
 
   async ionViewDidEnter() {
+    this.signedIn = await this.authService.isAuthenticated().toPromise();
     this.artists = await this.artistsService.listArtists();
   }
 
-  signOut() {
-    Auth.signOut();
+  setViewIsReady(event) {
+    console.log(event);
+    this.viewIsReady = true;
   }
+
+  signOut() {
+    this.authService.signOut();
+  }
+
+
 }

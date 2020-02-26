@@ -3,6 +3,7 @@ import { AmplifyService } from 'aws-amplify-angular';
 import { Observable, from, BehaviorSubject, of } from 'rxjs';
 import Amplify, { Auth } from 'aws-amplify';
 import { map, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class AuthService {
   user;
   signedIn;
 
-  constructor(private amplifyService: AmplifyService) {
+  constructor(
+    private amplifyService: AmplifyService,
+    private router: Router) {
 
     this.amplifyService.authStateChange$
       .subscribe(authState => {
@@ -34,7 +37,7 @@ export class AuthService {
     return user.signInUserSession.accessToken.payload['cognito:groups'];
   }
 
-  public isAuthenticated(): Observable<boolean> {
+  isAuthenticated(): Observable<boolean> {
     return from(Auth.currentAuthenticatedUser())
       .pipe(
         map(result => {
@@ -46,6 +49,11 @@ export class AuthService {
           return of(false);
         })
       );
+  }
+
+  signOut() {
+    Auth.signOut();
+    this.router.navigateByUrl('/login');
   }
 
 

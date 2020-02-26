@@ -41,7 +41,9 @@ export class ArtistsPage implements OnInit {
         this.updateArtistArray(result);
       }
     } else {
-      this.api.CreateArtist(data.artist);
+      const result = await this.api.CreateArtist(data.artist);
+      console.log(result);
+      this.artists.items.unshift(result);
     }
     // this.api.CreateArtist(data);
   }

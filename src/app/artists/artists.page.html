@@ -24,12 +24,24 @@
       <ion-row *ngIf="artists.items.length">
         <ion-col *ngFor="let artist of artists.items" size="12" size-sm="6" size-md="6" size-lg="4" size-xl="3">
           <ion-card [routerLink]="'/tabs/artists/' + artist.id">
-            <ion-img [src]="artist.image"></ion-img>
+            <ion-img [src]="artist.image" (ionImgDidLoad)="setViewIsReady($event)"></ion-img>
               <ion-item lines="none">
                 <ion-label>
-                  <h4 style="color: var(--ion-color-dark)">{{ artist.name }}</h4>
+                  <h1 style="color: var(--ion-color-dark)">{{ artist.name }}</h1>
                 </ion-label>
               </ion-item>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!artists.items.length">
+        <ion-col *ngFor="let skeleton of [1,2,3,4]" size="12" size-sm="6" size-md="6" size-lg="4" size-xl="3">
+          <ion-card>
+            <ion-skeleton-text style="width: 100vw; height: 100vw" animated></ion-skeleton-text>
+            <ion-item lines="none">
+              <ion-label>
+                <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+              </ion-label>
+            </ion-item>
           </ion-card>
         </ion-col>
       </ion-row>

@@ -3,8 +3,8 @@ type Venue
 @model
 @auth(
   rules: [
-    { allow: public, provider: apiKey, operations: [read] },
     { allow: groups, groups: ["Admins"], operations: [create, update, delete, read] }
+    { allow: public, provider: apiKey, operations: [read] },
   ])
 {
   id: ID!
@@ -23,7 +23,8 @@ type Artist @model {
 }
 
 type Performance @model
-@key(fields: ["when"])
+# @key(name: "byVenue", fields: ["venue.id", "when"], queryField: "performanceByVenue")
+# @key(name: "byWhen", fields: ["when" "venue.id"], queryField: "performanceByWhen")
 {
   id: ID!
   when: AWSDateTime!

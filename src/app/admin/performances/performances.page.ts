@@ -41,7 +41,8 @@ export class PerformancesPage implements OnInit {
         this.updatePerformanceArray(result);
       }
     } else {
-      this.api.CreatePerformance(data.performance);
+      const result = await this.api.CreatePerformance(data.performance);
+      this.performances.items.unshift(result);
     }
   }
 

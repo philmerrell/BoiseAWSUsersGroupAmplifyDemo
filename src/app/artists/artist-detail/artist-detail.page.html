@@ -9,7 +9,6 @@
 
 <ion-content fullscreen="true">
   <div *ngIf="artist">
-  
     <div style="background: var(--ion-color-primary)">
       <ion-grid>
         <ion-row class="ion-align-items-center">
@@ -45,5 +44,8 @@
     <!-- <pre>
       {{ artist | json }}
     </pre> -->
+  </div>
+  <div *ngIf="!artist">
+    
   </div>
 </ion-content>
